@@ -68,37 +68,39 @@ Tasks
                   <div class="x_content">
 
                     <!-- start form for validation -->
-                    <form id="demo-form" data-parsley-validate>
+                    <form id="create_new_project_form" action="{{url('/startproject')}}" method="POST" data-parsley-validate >
+                        @csrf
                       <label for="fullname">Project Title * :</label>
-                      <input type="text" id="fullname" class="form-control" name="fullname" required />
+                      <input type="text" id="project_title" class="form-control" name="project_title" required />
 
-                      <label for="email">Project Priority :</label>
-                      <input type="email" id="text" class="form-control" name="email" data-parsley-trigger="change" required />
+                      <label for="email">project_category:</label>
+                      <input type="email" id="text" class="form-control" name="project_category" data-parsley-trigger="change" required />
 
-                      <label>Project Category:</label>
+                      <label>Project Priority:</label>
                       <p>
                         High:
-                        <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> 
+                        <input type="radio" class="flat" name="project_priority" id="genderM" value="HIGH" checked="" required /> 
                         Medium:
-                        <input type="radio" class="flat" name="gender" id="genderF" value="F" />
+                        <input type="radio" class="flat" name="project_priority" id="genderF" value="Medium" />
                         Low:
-                        <input type="radio" class="flat" name="gender" id="genderF" value="F" />
+                        <input type="radio" class="flat" name="project_priority" id="genderF" value="Low" />
                       </p>
 
                           <label for="heard">Project Manager:</label>
-                          <select id="heard" class="form-control" required>
+                          <select id="heard" class="form-control" name="project_manager" required>
                             <option value="">Choose..</option>
-                            <option value="press">Press</option>
-                            <option value="net">Internet</option>
-                            <option value="mouth">Word of mouth</option>
+                            <option value="1">Press</option>
+                            <option value="2">Internet</option>
+                            <option value="3">Word of mouth</option>
                           </select>
 
                           <label for="message">Message (20 chars min, 100 max) :</label>
-                          <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          <textarea id="message" required="required" class="form-control" name="project_description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                             data-parsley-validation-threshold="10"></textarea>
 
                           <br/>
-                          <span class="btn btn-primary">Validate form</span>
+                          
+                          <button class="btn btn-primary" type="submit">Start</button>
 
                     </form>
                     <!-- end form for validations -->

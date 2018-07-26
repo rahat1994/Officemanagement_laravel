@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_title');
             $table->string('project_category');
             $table->string('project_priority');
+            $table->longText('project_description');
             $table->unsignedInteger('project_manager');
             $table->foreign('project_manager')->references('id')->on('users');
             $table->timestamps();
