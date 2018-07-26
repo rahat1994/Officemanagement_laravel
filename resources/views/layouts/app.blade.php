@@ -16,6 +16,12 @@
 
   <link href="{{asset('assets/fonts/css/font-awesome.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/animate.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/nprogress.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/green.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/jqvmap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/daterangepicker.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet">
 
   <!-- Custom styling plus plugins -->
   <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">

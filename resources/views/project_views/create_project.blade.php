@@ -4,6 +4,12 @@
 Tasks
 @endsection
 @section('content')
+
+<?php
+//dd($data);
+$managers = $data['managers'];
+
+?>
 <div class="right_col" role="main">
         <div class="">
           <div class="page-title">
@@ -89,9 +95,10 @@ Tasks
                           <label for="heard">Project Manager:</label>
                           <select id="heard" class="form-control" name="project_manager" required>
                             <option value="">Choose..</option>
-                            <option value="1">Press</option>
-                            <option value="2">Internet</option>
-                            <option value="3">Word of mouth</option>
+                            @foreach ($managers as $user)
+                               
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>                                      
+                            @endforeach
                           </select>
 
                           <label for="message">Message (20 chars min, 100 max) :</label>
