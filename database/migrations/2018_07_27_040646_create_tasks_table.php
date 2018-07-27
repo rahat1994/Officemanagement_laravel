@@ -34,7 +34,5 @@ class CreateTasksTable extends Migration
     public function down()
     {   
         Schema::dropIfExists('tasks');
-
-        $insertcode = 'INSERT INTO `tasks` (`id`, `task_title`, `task_category`, `task_priority`, `task_description`, `task_executioner`, `deadline`, `created_at`, `updated_at`) VALUES (NULL, 'task', 'high', 'high', 'This is  a description', '2', '2018-08-15 12:50:50', NULL, NULL);';
     }
 }

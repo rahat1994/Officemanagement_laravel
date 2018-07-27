@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App\Task as task;
 use App\User as User;
 use Illuminate\Http\Request;
 
@@ -29,8 +29,25 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         //
+        //dd($request->deadline);
 
-        dd($request->all());
+        $deadline =  explode('T', $request->deadline);
+
+        $deadlinedate = $deadline[0];
+        $deadlinetime = $deadline[1];
+
+        $date =  Date($deadlinedate);
+        $today = Date('Y-m-d');
+
+        if ($date<$today && date('G:i') < $deadlinetime) {
+            dd('date or time cannot set deadline on passed time or date');
+        }
+        else{           
+
+            $task = task::create($payload);
+            return view('project_views/create_project');
+        }
+
     }
 
     /**

@@ -74,7 +74,7 @@ $managers = $data['managers'];
                   <div class="x_content">
 
                     <!-- start form for validation -->
-                    <form id="create_new_project_form" action="{{url('/startproject')}}" method="POST" data-parsley-validate >
+                    <form id="create_new_project_form" action="{{url('/createtask')}}" method="POST" data-parsley-validate >
                         @csrf
                       <label for="fullname">Project Title * :</label>
                       <input type="text" id="project_title" class="form-control" name="project_title" required />
