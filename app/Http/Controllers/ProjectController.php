@@ -11,10 +11,8 @@ class ProjectController extends Controller
 
     public function index(Request $request){
 
-        $managers = User::where('role_id',2)->get();
-
-        $data = array('managers' =>$managers);
-        
+        $managers = User::where('role_id',3)->get();
+        $data = array('managers' =>$managers);        
     	return view('project_views.create_project',compact('data'));
     }
 

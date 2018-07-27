@@ -26,5 +26,10 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//project
 Route::get('/createproject', 'ProjectController@index');
 Route::post('/startproject', 'ProjectController@create');
+
+//Tasks
+Route::get('/createtask', 'TaskController@index');
+Route::post('/createtask', 'TaskController@create');
