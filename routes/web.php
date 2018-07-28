@@ -30,6 +30,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/createproject', 'ProjectController@index');
 Route::post('/startproject', 'ProjectController@create');
 
+Route::get('/projectintiation', 'ProjectController@project_intiation');
+
+
 //Tasks
 Route::get('/createtask', 'TaskController@index');
 Route::post('/createtask', 'TaskController@create');
+
+
+//AJAX NOTIFICATIONS FOR USERS.
+Route::group([ 'middleware' => 'auth' ], function () {
+    // ...
+    Route::get('/notifications', 'UserController@notifications');
+});
