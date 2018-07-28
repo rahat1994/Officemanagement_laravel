@@ -30,7 +30,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/createproject', 'ProjectController@index');
 Route::post('/startproject', 'ProjectController@create');
 
+//project initiation by manager
 Route::get('/projectintiation', 'ProjectController@project_intiation');
+Route::post('/projectintiation', 'ProjectController@project_intiation_create');
 
 
 //Tasks

@@ -126,9 +126,9 @@ function makeNotification(notification) {
 
 // get the notification route based on it's type
 function routeNotification(notification) {
-    var to = '?read=' + notification.id;
+    var to = '?project_id=' + notification.data.project_id;
     if (notification.type === NOTIFICATION_TYPES.follow) {
-        to = 'users' + to;
+        to = 'projectintiation' + to;
     }
     return '/' + to;
 }
