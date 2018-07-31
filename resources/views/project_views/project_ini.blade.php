@@ -157,12 +157,20 @@ $employees = $data['employees'];
                         <div class="tab">Select Project members:
                           <br>
                           <label for="project_members">Select Multiple project member by holding (CTRL key):</label>
+                          
+                          <br>
+                          <br>
 
-                          <select class="select2_multiple form-control" name="project_members[]" id="project_members" multiple>
-                            @foreach($employees as $singleemployee)
-                              <option value="{{$singleemployee->id}}">{{$singleemployee->name}}</option>
-                            @endforeach
-                          </select>
+                          @foreach($employees as $singleemployee)
+                            <input type="checkbox" name="project_members[]" value="{{$singleemployee->id}}">{{$singleemployee->name}}<br>
+                          @endforeach
+
+
+                          <!-- <select class="select2_multiple form-control" name="project_members[]" id="project_members" multiple>
+                            //@foreach($employees as $singleemployee)
+                              //<option value="{{$singleemployee->id}}">{{$singleemployee->name}}</option>
+                            //@endforeach
+                          </select> -->
                           <br>
                         </div>
                         <div class="tab">Important Files for Project:

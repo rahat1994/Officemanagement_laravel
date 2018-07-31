@@ -82,7 +82,8 @@ __webpack_require__(6);
 var notifications = [];
 
 var NOTIFICATION_TYPES = {
-    follow: 'App\\Notifications\\ProjectAssigned'
+    projectassigned: 'App\\Notifications\\ProjectAssigned',
+    includedinproject: 'App\\Notifications\\includedinproject'
 };
 
 $(document).ready(function () {
@@ -99,8 +100,10 @@ $(document).ready(function () {
 
 function addNotifications(newNotifications, target) {
     notifications = _.concat(notifications, newNotifications);
+
     // show only last 5 notifications
-    notifications.slice(0, 5);
+    // notifications.slice(0, 5);
+
     showNotifications(notifications, target);
 }
 
@@ -127,8 +130,9 @@ function makeNotification(notification) {
 // get the notification route based on it's type
 function routeNotification(notification) {
     var to = '?project_id=' + notification.data.project_id;
-    if (notification.type === NOTIFICATION_TYPES.follow) {
-        to = 'projectintiation' + to;
+    var read = '&read=' + notification.id;
+    if (notification.type === NOTIFICATION_TYPES.projectassigned) {
+        to = 'projectintiation' + to + read;
     }
     return '/' + to;
 }
@@ -136,9 +140,12 @@ function routeNotification(notification) {
 // get the notification text based on it's type
 function makeNotificationText(notification) {
     var text = '';
-    if (notification.type === NOTIFICATION_TYPES.follow) {
+    if (notification.type === NOTIFICATION_TYPES.projectassigned) {
         var name = notification.data.project_title;
         text += 'New Project <strong>' + name + '</strong> assigned to you';
+    } else if (notification.type === NOTIFICATION_TYPES.includedinproject) {
+        var _name = notification.data.project_title;
+        text += 'You are a member of new project <strong>' + _name + '</strong>';
     }
     return text;
 }

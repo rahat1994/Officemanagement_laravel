@@ -34,6 +34,9 @@ Route::post('/startproject', 'ProjectController@create');
 Route::get('/projectintiation', 'ProjectController@project_intiation');
 Route::post('/projectintiation', 'ProjectController@project_intiation_create');
 
+Route::get('/projectlist', 'ProjectController@projectlist')->name('projectlist');
+Route::get('/projectdetail', 'ProjectController@projectdetail')->name('projectdetail');
+
 
 //Tasks
 Route::get('/createtask', 'TaskController@index');

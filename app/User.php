@@ -14,6 +14,13 @@ class User extends \TCG\Voyager\Models\User
      *
      * @var array
      */
+
+    public static function managerlist($user){
+       
+       $managerlist = User::where('role_id',3)->get();
+       return $managerlist;
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
